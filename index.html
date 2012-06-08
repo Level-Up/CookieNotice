@@ -9,10 +9,7 @@
 <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
 
 <style>
-body {
-    width: 960px;
-    margin: 50px auto;
-}
+
 
 h1 {
     float: left;
@@ -24,7 +21,7 @@ h1 {
     text-align: right;
 }
 
-aside div.info {
+.alert .info {
     margin: 0;
     padding: 0;
     margin-left: 225px;
@@ -32,12 +29,17 @@ aside div.info {
     border-left: 1px solid;
 }
 
-div.extended {
-    display: none;
+.alert {
+    position: absolute;
+    border-top: none;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    width: 900px;
+    z-index: 999;
 }
 
-aside:hover .extended {
-    display: block;
+.hide {
+    display: none;
 }
 </style>
 
@@ -45,8 +47,8 @@ aside:hover .extended {
 
 <body>
 
-<aside class="alert">
-    <a class="close">×</a>
+<div class="alert hide" id="cookie_notice">
+    <a class="close" title="Close this message and do not show again. This will set a cookie.">close ×</a>
     <h1>This site uses cookies</h1>
     <div class="info">
         <div class="intro">
@@ -55,12 +57,12 @@ aside:hover .extended {
             <p>They improve things by:</p>
             <ul>
                 <li>remembering settings, so you don't have to keep re-entering them whenever you visit a new page</li>
-                <li>remembering information you've given (eg your postcode) so you don't need to keep entering it</li>
+                <li>remembering information you've given (eg your login) so you don't need to keep entering it</li>
                 <li>measuring how you use the website so we can make sure it meets your needs</li>
             </ul>
         </div>
         
-        <div class="extended">
+        <div class="extended hide">
             <p>Our cookies aren't used to identify you personally. They're just here to make the site work better for you. Indeed, you can manage and/or delete these small files as you wish.</p>
             <p>To learn more about cookies and how to manage them, visit <a href="http://AboutCookies.org">AboutCookies.org</a>. Or please read on to find out more about how and where we use cookies.</p>
             
@@ -69,67 +71,169 @@ aside:hover .extended {
             to disbale cookies.</p>
             <div class="well">
                 <ul class="thumbnails">
-                    <li><a href="#"><img src="http://aux2.iconpedia.net/uploads/42798552780739088.png" width="100px" /></a></li>
-                    <li><a href="#"><img src="http://aux2.iconpedia.net/uploads/42798552780739088.png" width="100px" /></a></li>
-                    <li><a href="#"><img src="http://aux2.iconpedia.net/uploads/42798552780739088.png" width="100px" /></a></li>
-                    <li><a href="#"><img src="http://aux2.iconpedia.net/uploads/42798552780739088.png" width="100px" /></a></li>
-                    <li><a href="#"><img src="http://aux2.iconpedia.net/uploads/42798552780739088.png" width="100px" /></a></li>
+                    <li><a href="http://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences"><img src="Firefox.png" width="100px" /></a></li>
+                    <li><a href="http://support.microsoft.com/kb/196955"><img src="IE.png" width="100px" /></a></li>
+                    <li><a href="https://support.google.com/chrome/bin/answer.py?hl=en&answer=95647&p=cpn_cookies"><img src="Chrome.png" width="100px" /></a></li>
+                    <li><a href="http://support.apple.com/kb/PH5042"><img src="Safari.png" width="100px" /></a></li>
+                    <li><a href="http://www.opera.com/browser/tutorials/security/privacy/"><img src="Opera.png" width="100px" /></a></li>
                 </ul>
             </div>
             
             
-            <h2>How we use cookies</h2>
-    
-            <p>This site uses cookies in several places – we’ve listed each of them below with more details 
-            about why we use them and how long they will last.</p>
-            
-            <h3>Measuring website usage (Google Analytics)</h3>
-    
-            <p>We use Google Analytics to collect information about how people use this site. We do this to make sure it’s 
-            meeting its users’ needs and to understand how we could do it better.</p>
-    
-            <p>Google Analytics stores information about what pages you visit, how long you are on the site, 
-            how you got here and what you click on. This information cannot be used to identify you and 
-            we do not allow Google to use our analytics data.</p>
-    
-            <p>The following cookies are set by Google Analytics:</p>
-            
-            <table class="table table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Typical Content</th>
-                        <th>Expires</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>_utma</td>
-                        <td>randomly generated number</td>
-                        <td>2 years</td>
-                    </tr>
-                    <tr>
-                        <td>_utmb</td>
-                        <td>randomly generated number</td>
-                        <td>30 minutes</td>
-                    </tr>
-                    <tr>
-                        <td>_utmc</td>
-                        <td>randomly generated number</td>
-                        <td>when you close your browser</td>
-                    </tr>
-                    <tr>
-                        <td>_utmz</td>
-                        <td>randomly generated number and information on how the site was
-                        reached (e.g. direct or via a link, organic search or paid
-                        search)</td>
-                        <td>6 months</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="how-we-use-cookies">
+                <h2>How we use cookies</h2>
+        
+                <p>This site uses cookies in several places – we’ve listed each of them below with more details 
+                about why we use them and how long they will last.</p>
+                
+                <h3>Enabling advance functionality</h3>
+                
+                <p>In order to provide our visitors with advanced functionality such as Logging In, making purchases, saving preferences
+                and so on we use cookies to remember who each visitor is as they move between different pages of the site.</p>
+                
+                <h4>The following cookies are set to provide advanced functionality</h4>
+                
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Typical Content</th>
+                            <th>Expires</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>sessionid</td>
+                            <td>randomly generated uuid</td>
+                            <td>when you close your browser</td>
+                        </tr>
+                        <tr>
+                            <td>cookiemsg</td>
+                            <td>dismiss</td>
+                            <td>1 year</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Making you more secure</h3>
+                
+                <p>In order to protect our users from other sites masquerading as them and submitting requests to their
+                    account without their knowledge we use a security cookie to protect against
+                    Cross Site Request Forgery.
+                </p>
+                
+                <h4>The following cookie is set to provide advanced functionality</h4>
+                
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Typical Content</th>
+                            <th>Expires</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>csrftoken</td>
+                            <td>randomly generated token</td>
+                            <td>when you close your browser</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Measuring website usage</h3>
+        
+                <p>We use Analytics to collect information about how people use this site. We do this to make sure it’s 
+                meeting its users’ needs and to understand how we could do it better.</p>
+        
+                <p>Analytics stores information about what pages you visit, how long you are on the site, 
+                how you got here and what you click on.</p>
+        
+                <h4>The following cookies are set by our Analytics providers:</h4>
+                
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Typical Content</th>
+                            <th>Expires</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>_utma</td>
+                            <td>randomly generated number</td>
+                            <td>2 years</td>
+                        </tr>
+                        <tr>
+                            <td>_utmb</td>
+                            <td>randomly generated number</td>
+                            <td>30 minutes</td>
+                        </tr>
+                        <tr>
+                            <td>_utmc</td>
+                            <td>randomly generated number</td>
+                            <td>when you close your browser</td>
+                        </tr>
+                        <tr>
+                            <td>_utmz</td>
+                            <td>randomly generated number and information on how the site was
+                            reached (e.g. direct or via a link, organic search or paid
+                            search)</td>
+                            <td>6 months</td>
+                        </tr>
+                        <tr>
+                            <td>is_returning</td>
+                            <td>Boolean value which marks if you are a returning visitor</td>
+                            <td>5 years</td>
+                        </tr>
+                        <tr>
+                            <td>mp_&#8230;_mixpanel</td>
+                            <td>Randomly generated uuid and information on referring domain</td>
+                            <td>1 year</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</aside>
+</div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="jquerypp.custom.js"></script>
+<script>
+$(window).load(function(){
+    if($.cookie('cookiemsg') == "dismiss") {
+        $("#cookie_notice").remove();
+    } else {
+        $("#cookie_notice").removeClass("hide");
+        $('#cookie_notice').css({
+            "top" : "-200px"
+        }).animate({
+            "top": 0
+        }, 500);
+        
+        $('#cookie_notice').on({
+            hoverenter : function(){
+                $(".extended").removeClass("hide");
+            },
+            hoverleave : function(){
+                $(".extended").addClass("hide");
+            }
+        });
+        
+        $("#cookie_notice .close").click(function(){
+            $.cookie('cookiemsg', 'dismiss', {expires: 365});
+            $('#cookie_notice').animate({
+                opacity : 0
+            }, 500, function() {
+                $("#cookie_notice").remove();
+            });
+            
+            return false;
+        });
+    }
+});
+</script>
 </body>
 </html>
